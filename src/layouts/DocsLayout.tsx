@@ -11,10 +11,28 @@ export default defineComponent({
   name: 'DocsLayout',
   setup() {
     const ui = useUIStore()
-    return () => <div class="min-h-screen flex flex-col bg-white">
-      <TopBar />
-      {ui.leftSidebarOpen && <div class="fixed inset-0 bg-black/30 z-40 md:hidden" onClick={() => ui.closeAll()} />}
-      <div class="flex flex-1 pt-[60px]"><SidebarLeft /><main class="flex-1 min-w-0"><div class="doc-content max-w-3xl mx-auto px-4 md:px-8 py-8"><Breadcrumb /><RouterView /><Pagination /></div></main><SidebarRight /></div>
-    </div>
-  }
+
+    return () => (
+      <div class="flex min-h-screen flex-col bg-[#09090b] text-zinc-100">
+        <TopBar />
+        {(ui.leftSidebarOpen || ui.rightSidebarOpen) && (
+          <div
+            class="fixed inset-0 z-40 bg-black/65 backdrop-blur-[2px] lg:hidden"
+            onClick={() => ui.closeAll()}
+          />
+        )}
+        <div class="flex flex-1 pt-[60px]">
+          <SidebarLeft />
+          <main class="min-w-0 flex-1">
+            <div class="doc-content mx-auto max-w-3xl px-4 py-8 md:px-8 md:py-10">
+              <Breadcrumb />
+              <RouterView />
+              <Pagination />
+            </div>
+          </main>
+          <SidebarRight />
+        </div>
+      </div>
+    )
+  },
 })
