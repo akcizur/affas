@@ -13,9 +13,9 @@ export default defineComponent({
     return () => (
       <aside
         class={[
-          'sidebar-scroll lg:sticky lg:top-[60px] lg:h-[calc(100vh-60px)] lg:w-[220px] lg:shrink-0 lg:overflow-y-auto lg:py-6 lg:pr-4',
+          'sidebar-scroll glass-sidepanel lg:glass-sidepanel-docked lg:sticky lg:top-[60px] lg:h-[calc(100vh-60px)] lg:w-[220px] lg:shrink-0 lg:overflow-y-auto lg:py-6 lg:pr-4 rounded-l-3xl lg:rounded-none',
           ui.rightSidebarOpen
-            ? 'fixed right-0 top-[60px] z-50 block h-[calc(100vh-60px)] w-[min(84vw,300px)] overflow-y-auto border-l border-zinc-800 bg-[#0c0c0f] px-4 py-6 shadow-2xl shadow-black/50'
+            ? 'fixed right-0 top-[60px] z-50 block h-[calc(100vh-60px)] w-[min(84vw,300px)] overflow-y-auto border-l px-4 py-6 shadow-2xl shadow-black/40'
             : 'hidden lg:block',
         ]}
       >
@@ -32,7 +32,7 @@ export default defineComponent({
                   document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' })
                   ui.closeAll()
                 }}
-                class="block rounded-full px-3 py-2 text-sm text-zinc-500 transition-colors hover:bg-zinc-900 hover:text-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-600"
+                class="glass-row block px-3 py-2 text-sm text-zinc-500 hover:text-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-600"
               >
                 {item.text}
               </a>
