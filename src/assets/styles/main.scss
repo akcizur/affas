@@ -4,20 +4,103 @@ $transition: 0.2s ease;
 @mixin scrollbar-thin {
   scrollbar-width: thin;
   scrollbar-color: rgb(203 213 225) transparent;
-  &::-webkit-scrollbar { width: 6px; height: 6px; }
-  &::-webkit-scrollbar-thumb { background: rgb(203 213 225); border-radius: 3px; }
-  &::-webkit-scrollbar-track { background: transparent; }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(203 213 225);
+    border-radius: 999px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+:root {
+  --row-pill-radius: 999px;
+  --row-pill-hover: #f1f5f9;
+}
+
+button,
+input,
+[role='button'] {
+  transition: background-color $transition, border-color $transition, color $transition, box-shadow $transition;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
 }
 
 .doc-content {
-  h1 { margin: 2rem 0 1rem; font-size: 1.875rem; line-height: 2.25rem; font-weight: 700; color: #0f172a; }
-  h2 { margin: 2rem 0 .75rem; font-size: 1.5rem; line-height: 2rem; font-weight: 600; color: #0f172a; scroll-margin-top: 5rem; }
-  p { margin: 0 0 1rem; line-height: 1.75rem; color: #334155; }
-  ul, ol { margin: 0 0 1rem; padding-left: 1.5rem; color: #334155; }
-  ul { list-style: disc; }
-  ol { list-style: decimal; }
-  a { color: #2563eb; }
-  a:hover { color: #1d4ed8; text-decoration: underline; }
-  .shiki { margin: 1rem 0; padding: 1rem; overflow-x: auto; border: 1px solid #e2e8f0; border-radius: .5rem; background: #f8fafc !important; font-family: $font-mono !important; font-size: .875rem; line-height: 1.5rem; }
+  h1 {
+    margin: 2rem 0 1rem;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.035em;
+  }
+
+  h2 {
+    margin: 2rem 0 .75rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+    color: #0f172a;
+    letter-spacing: -0.025em;
+    scroll-margin-top: 5rem;
+  }
+
+  p {
+    margin: 0 0 1rem;
+    line-height: 1.75rem;
+    color: #334155;
+  }
+
+  ul,
+  ol {
+    margin: 0 0 1rem;
+    padding-left: 1.5rem;
+    color: #334155;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  a {
+    color: #2563eb;
+  }
+
+  a:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+  }
+
+  .shiki {
+    margin: 1rem 0;
+    padding: 1rem;
+    overflow-x: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    background: #f8fafc !important;
+    font-family: $font-mono !important;
+    font-size: .875rem;
+    line-height: 1.5rem;
+  }
 }
-.sidebar-scroll { @include scrollbar-thin; }
+
+.sidebar-scroll {
+  @include scrollbar-thin;
+}
