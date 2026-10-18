@@ -1,0 +1,4 @@
+import { defineComponent, computed } from 'vue'
+import { useRoute, RouterLink } from 'vue-router'
+import { ChevronRight } from 'lucide-vue-next'
+export default defineComponent({ name:'Breadcrumb', setup(){const route=useRoute(); const crumbs=computed(()=>route.path.split('/').filter(Boolean).map((p,i,a)=>({text:p[0]?.toUpperCase()+p.slice(1),path:i===a.length-1?null:'/ '+a.slice(0,i+1).join('/')})).map(x=>({...x,path:x.path?.replace('/ ','/')}))); return ()=> <nav class="flex items-center gap-1.5 text-sm text-slate-500 mb-6"><RouterLink to="/" class="hover:text-slate-800">Home</RouterLink>{crumbs.value.map((c,i)=><span key={i} class="flex items-center gap-1.5"><ChevronRight class="w-3.5 h-3.5"/>{c.path?<RouterLink to={c.path}>{c.text}</RouterLink>:<span class="text-slate-800 font-medium">{c.text}</span>}</span>)}</nav>}})

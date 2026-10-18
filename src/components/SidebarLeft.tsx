@@ -1,0 +1,5 @@
+import { defineComponent } from 'vue'
+import { RouterLink } from 'vue-router'
+import navigation from '@/data/navigation'
+import { useUIStore } from '@/stores/ui'
+export default defineComponent({ name: 'SidebarLeft', setup() { const ui=useUIStore(); return () => <aside class={[ 'sidebar-scroll fixed md:sticky top-[60px] h-[calc(100vh-60px)] w-[260px] shrink-0 bg-slate-50/70 border-r border-slate-200 overflow-y-auto py-4 transition-transform duration-200 z-50 md:translate-x-0', ui.leftSidebarOpen ? 'translate-x-0' : '-translate-x-full' ]}><nav class="px-2">{navigation.map(g=><div class="mb-4" key={g.title}><div class="px-3 py-2 text-xs font-semibold uppercase tracking-wider text-slate-500">{g.title}</div>{g.children.map(c=><RouterLink key={c.path} to={c.path} class="block px-3 py-1.5 text-sm text-slate-700 rounded-md hover:bg-slate-100" activeClass="bg-brand-50 text-brand-700 font-medium" exactActiveClass="bg-brand-50 text-brand-700 font-medium">{c.title}</RouterLink>)}</div>)}</nav></aside> } })
