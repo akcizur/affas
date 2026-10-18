@@ -22,16 +22,16 @@ export default defineComponent({
           onInput={(event) => query.value = (event.target as HTMLInputElement).value}
           placeholder="Search documentation..."
           aria-label="Search documentation"
-          class="w-full rounded-full border border-zinc-800 bg-zinc-900/80 py-2 pl-10 pr-4 text-sm text-zinc-100 outline-none placeholder:text-zinc-500 focus:border-zinc-600 focus:bg-zinc-900 focus:ring-2 focus:ring-zinc-700/40"
+          class="glass-input w-full rounded-full py-2 pl-10 pr-4 text-sm text-zinc-100 outline-none placeholder:text-zinc-500"
         />
         {results().length > 0 && (
-          <ul class="absolute left-0 right-0 top-full z-50 mt-2 space-y-1 overflow-hidden rounded-2xl border border-zinc-800 bg-[#111113] p-1.5 shadow-2xl shadow-black/40">
+          <ul class="glass-popover absolute left-0 right-0 top-full z-50 mt-2 space-y-1 overflow-hidden rounded-2xl p-1.5">
             {results().map(item => (
               <li key={item.path}>
                 <RouterLink
                   to={item.path}
                   onClick={() => query.value = ''}
-                  class="block rounded-full px-4 py-2.5 text-sm text-zinc-300 hover:bg-zinc-800 hover:text-white"
+                  class="glass-row block px-4 py-2.5 text-sm text-zinc-300 hover:text-white"
                 >
                   {item.title}
                 </RouterLink>
