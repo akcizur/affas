@@ -1,9 +1,9 @@
 $font-mono: 'JetBrains Mono', ui-monospace, monospace;
-$transition: 0.2s ease;
+$transition: 0.18s ease;
 
 @mixin scrollbar-thin {
   scrollbar-width: thin;
-  scrollbar-color: rgb(203 213 225) transparent;
+  scrollbar-color: #3f3f46 transparent;
 
   &::-webkit-scrollbar {
     width: 6px;
@@ -11,7 +11,7 @@ $transition: 0.2s ease;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: rgb(203 213 225);
+    background: #3f3f46;
     border-radius: 999px;
   }
 
@@ -22,85 +22,113 @@ $transition: 0.2s ease;
 
 :root {
   --row-pill-radius: 999px;
-  --row-pill-hover: #f1f5f9;
+  --row-pill-hover: #18181b;
+}
+
+* {
+  border-color: inherit;
 }
 
 button,
 input,
-[role='button'] {
-  transition: background-color $transition, border-color $transition, color $transition, box-shadow $transition;
+[role='button'],
+a {
+  transition:
+    background-color $transition,
+    border-color $transition,
+    color $transition,
+    box-shadow $transition;
 }
 
 button:focus-visible,
 a:focus-visible,
 input:focus-visible {
-  outline: 2px solid #93c5fd;
+  outline: 2px solid #71717a;
   outline-offset: 2px;
 }
 
 .doc-content {
+  color: #e4e4e7;
+
   h1 {
     margin: 2rem 0 1rem;
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-    font-weight: 700;
-    color: #0f172a;
-    letter-spacing: -0.035em;
+    font-size: clamp(1.8rem, 4vw, 2.25rem);
+    line-height: 1.15;
+    font-weight: 650;
+    color: #fafafa;
+    letter-spacing: -0.045em;
   }
 
   h2 {
-    margin: 2rem 0 .75rem;
-    font-size: 1.5rem;
-    line-height: 2rem;
+    margin: 2.25rem 0 .8rem;
+    font-size: 1.45rem;
+    line-height: 1.4;
     font-weight: 600;
-    color: #0f172a;
+    color: #f4f4f5;
     letter-spacing: -0.025em;
+    scroll-margin-top: 5rem;
+  }
+
+  h3 {
+    margin: 1.75rem 0 .6rem;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    font-weight: 600;
+    color: #e4e4e7;
     scroll-margin-top: 5rem;
   }
 
   p {
     margin: 0 0 1rem;
-    line-height: 1.75rem;
-    color: #334155;
+    line-height: 1.8;
+    color: #a1a1aa;
   }
 
   ul,
   ol {
     margin: 0 0 1rem;
     padding-left: 1.5rem;
-    color: #334155;
+    color: #a1a1aa;
   }
 
-  ul {
-    list-style: disc;
-  }
-
-  ol {
-    list-style: decimal;
-  }
+  ul { list-style: disc; }
+  ol { list-style: decimal; }
 
   a {
-    color: #2563eb;
+    color: #e4e4e7;
+    text-decoration-color: #52525b;
+    text-underline-offset: 3px;
   }
 
   a:hover {
-    color: #1d4ed8;
+    color: #fff;
     text-decoration: underline;
   }
 
   .shiki {
-    margin: 1rem 0;
-    padding: 1rem;
+    margin: 1.25rem 0;
+    padding: 1.1rem 1.2rem;
     overflow-x: auto;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #27272a;
     border-radius: 1rem;
-    background: #f8fafc !important;
+    background: #111113 !important;
+    color: #e4e4e7;
     font-family: $font-mono !important;
     font-size: .875rem;
-    line-height: 1.5rem;
+    line-height: 1.7;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 2%) inset;
+  }
+
+  table {
+    border-collapse: separate;
   }
 }
 
 .sidebar-scroll {
   @include scrollbar-thin;
+}
+
+::selection {
+  color: #fff;
+  background: #3f3f46;
 }
