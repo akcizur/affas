@@ -98,6 +98,12 @@ input:focus-visible {
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
+
+  .glass-sidepanel-docked {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+  }
 }
 
 .glass-input {
