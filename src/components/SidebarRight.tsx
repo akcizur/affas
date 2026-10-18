@@ -13,7 +13,7 @@ export default defineComponent({
     return () => (
       <aside
         class={[
-          'sidebar-scroll glass-sidepanel lg:glass-sidepanel-docked lg:sticky lg:top-[60px] lg:h-[calc(100vh-60px)] lg:w-[220px] lg:shrink-0 lg:overflow-y-auto lg:py-6 lg:pr-4 rounded-l-3xl lg:rounded-none',
+          'sidebar-scroll glass-sidepanel glass-sidepanel-docked lg:sticky lg:top-[60px] lg:h-[calc(100vh-60px)] lg:w-[220px] lg:shrink-0 lg:overflow-y-auto lg:py-6 lg:pr-4 rounded-l-3xl lg:rounded-none',
           ui.rightSidebarOpen
             ? 'fixed right-0 top-[60px] z-50 block h-[calc(100vh-60px)] w-[min(84vw,300px)] overflow-y-auto border-l px-4 py-6 shadow-2xl shadow-black/40'
             : 'hidden lg:block',
