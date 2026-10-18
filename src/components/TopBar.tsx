@@ -10,9 +10,9 @@ export default defineComponent({
     const ui = useUIStore()
 
     return () => (
-      <header class="fixed inset-x-0 top-0 z-50 flex h-[60px] items-center gap-3 border-b border-zinc-800/90 bg-[#09090b]/90 px-4 text-zinc-100 backdrop-blur-xl md:px-6">
+      <header class="glass-topbar fixed inset-x-0 top-0 z-50 flex h-[60px] items-center gap-3 px-4 text-zinc-100 md:px-6">
         <button
-          class="grid size-9 shrink-0 place-items-center rounded-full text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100 md:hidden"
+          class="grid size-9 shrink-0 place-items-center rounded-full text-zinc-400 hover:bg-white/[0.06] hover:text-zinc-100 md:hidden"
           onClick={ui.toggleLeft}
           aria-label="Open navigation"
         >
@@ -26,7 +26,7 @@ export default defineComponent({
           <SearchBox />
         </div>
         <button
-          class="grid size-9 shrink-0 place-items-center rounded-full text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100 lg:hidden"
+          class="grid size-9 shrink-0 place-items-center rounded-full text-zinc-400 hover:bg-white/[0.06] hover:text-zinc-100 lg:hidden"
           onClick={ui.toggleRight}
           aria-label="Open page contents"
         >
