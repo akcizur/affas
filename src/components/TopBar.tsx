@@ -3,4 +3,36 @@ import { Menu, PanelRight, BookOpen } from 'lucide-vue-next'
 import { RouterLink } from 'vue-router'
 import { useUIStore } from '@/stores/ui'
 import SearchBox from './SearchBox'
-export default defineComponent({ name: 'TopBar', setup() { const ui = useUIStore(); return () => <header class="fixed top-0 inset-x-0 h-[60px] bg-white/90 backdrop-blur border-b border-slate-200 flex items-center px-4 md:px-6 gap-3 z-50"><button class="md:hidden p-1.5 rounded hover:bg-slate-100" onClick={ui.toggleLeft}><Menu class="w-5 h-5" /></button><RouterLink to="/" class="flex items-center gap-2 font-bold text-lg"><BookOpen class="w-6 h-6 text-brand-600" />AFFAS</RouterLink><div class="flex-1 max-w-md mx-auto"><SearchBox /></div><button class="lg:hidden p-1.5 rounded hover:bg-slate-100" onClick={ui.toggleRight}><PanelRight class="w-5 h-5" /></button></header> } })
+
+export default defineComponent({
+  name: 'TopBar',
+  setup() {
+    const ui = useUIStore()
+
+    return () => (
+      <header class="fixed inset-x-0 top-0 z-50 flex h-[60px] items-center gap-3 border-b border-zinc-800/90 bg-[#09090b]/90 px-4 text-zinc-100 backdrop-blur-xl md:px-6">
+        <button
+          class="grid size-9 shrink-0 place-items-center rounded-full text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100 md:hidden"
+          onClick={ui.toggleLeft}
+          aria-label="Open navigation"
+        >
+          <Menu class="size-5" />
+        </button>
+        <RouterLink to="/" class="flex items-center gap-2 rounded-full text-lg font-semibold tracking-tight text-zinc-100">
+          <BookOpen class="size-5 text-zinc-300" />
+          <span>AFFAS</span>
+        </RouterLink>
+        <div class="mx-auto w-full max-w-md flex-1">
+          <SearchBox />
+        </div>
+        <button
+          class="grid size-9 shrink-0 place-items-center rounded-full text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100 lg:hidden"
+          onClick={ui.toggleRight}
+          aria-label="Open page contents"
+        >
+          <PanelRight class="size-5" />
+        </button>
+      </header>
+    )
+  },
+})
