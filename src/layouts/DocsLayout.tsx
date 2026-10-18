@@ -13,7 +13,7 @@ export default defineComponent({
     const ui = useUIStore()
 
     return () => (
-      <div class="flex min-h-screen flex-col bg-[#09090b] text-zinc-100">
+      <div class="flex min-h-screen flex-col bg-transparent text-zinc-100">
         <TopBar />
         {(ui.leftSidebarOpen || ui.rightSidebarOpen) && (
           <div
