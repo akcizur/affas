@@ -15,11 +15,11 @@
 @layer base {
   :root {
     color-scheme: dark;
-    --background: #09090b;
-    --foreground: #fafafa;
-    --surface: #111113;
-    --surface-elevated: #18181b;
-    --border: #27272a;
+    --background: #0a0a0c;
+    --foreground: #f4f4f5;
+    --surface: #111114;
+    --surface-elevated: #17171a;
+    --border: #29292d;
     --muted: #a1a1aa;
   }
 
