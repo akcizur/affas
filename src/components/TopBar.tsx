@@ -18,9 +18,12 @@ export default defineComponent({
         >
           <Menu class="size-5" />
         </button>
-        <RouterLink to="/" class="flex items-center gap-2 rounded-full text-lg font-semibold tracking-tight text-zinc-100">
-          <BookOpen class="size-5 text-zinc-300" />
-          <span>AFFAS</span>
+        <RouterLink to="/" class="group flex shrink-0 items-center gap-2.5 rounded-full text-zinc-100 no-underline">
+          <span class="grid size-8 place-items-center rounded-xl border border-white/[0.08] bg-white/[0.035] text-zinc-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_2px_5px_rgba(0,0,0,0.18)] transition-colors group-hover:border-white/[0.12] group-hover:bg-white/[0.055]">
+            <BookOpen class="size-4" />
+          </span>
+          <span class="text-[15px] font-semibold tracking-[0.14em]">AFFAS</span>
+          <span class="hidden rounded-full border border-white/[0.07] bg-white/[0.025] px-2 py-1 text-[9px] font-medium tracking-[0.16em] text-zinc-500 sm:inline">DOCS</span>
         </RouterLink>
         <div class="mx-auto w-full max-w-md flex-1">
           <SearchBox />
